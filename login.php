@@ -4,13 +4,12 @@ include ('functions.php');
 
 session_start();
 
-if (isset($_GET)) {
-	$name = $_GET['name'];
-	$passwd = $_GET['passwd'];
+if (isset($_POST)) {
+	$name = $_POST['name'];
+	$passwd = $_POST['passwd'];
 	$result = login($name, $passwd);
 	if ($result) {
-		$row = $result->fetch_assoc();
-		$_SESSION['author_id'] = $row['id'];
+		$_SESSION['author'] = $name;
 		header('Location:http://127.0.0.1/blog');
 		exit;
 	} else{
@@ -24,7 +23,7 @@ echo "<p>You havn't logged in yet.</p>";
 
 ?>
 
-<form action="login.php">
+<form action="login.php" method="post">
 Username:<input type="text" name="name" /><br>
 Password:<input type="password" name="passwd" /><br>
 <input type="submit" value="submit" />
