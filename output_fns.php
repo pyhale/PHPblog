@@ -61,7 +61,7 @@ function display_comments($comments) {
 			<li>
 			<p><?php echo $row['title'];?></p>
 			<p><?php echo $row['content'];?></p>
-			<a href="#">delete</a>
+			<a href="<?php echo 'http://127.0.0.1/blog/del_comment.php?id='.$row['id'];?>">delete</a>
 			</li>
 <?php
 			echo "<hr>";

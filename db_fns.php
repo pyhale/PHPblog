@@ -37,3 +37,10 @@ function insert_comment($post_id, $title, $content){
 	$result = $db->query($query);
 	return $result;
 }
+
+function del_comment($id) {
+	$db = db_connect();
+	$query = "delete from comments where id=".$id;
+	$result = $db->query($query);
+	return $result;
+}
