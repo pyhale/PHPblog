@@ -58,3 +58,10 @@ function del_post($id) {
 	$result = $db->query($query);
 	return $result;
 }
+
+function update_post($id, $title, $body) {
+	$db = db_connect();
+	$query = "update entries set title='".$title."', body='".$body."' where id=".$id;
+	$result = $db->query($query);
+	return $result;
+}

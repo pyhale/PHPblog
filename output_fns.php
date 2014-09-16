@@ -30,6 +30,7 @@ function display_entries($result) {
 		$row = $result->fetch_assoc();
 		echo "<a href=\"http://127.0.0.1/blog/post.php?id=".$row['id']."\"><h3>".$row['title']."</h3></a>";
 		echo "<p>".$row['body']."</p>";
+		echo "<a href=\"http://127.0.0.1/blog/edit_post.php?id=".$row['id']."\">edit</a><br>";
 		echo "<a href=\"http://127.0.0.1/blog/del_post.php?id=".$row['id']."\">delete</a>";
 		echo "<hr />";
 	}
@@ -102,6 +103,20 @@ function post_write_form($author_id) {
 	<input type="hidden" name="author_id" value="<?php echo $author_id;?>" />
 	<input type="text" name="title" /><br>
 	<textarea name="body" cols="45" row="5"></textarea><br>
+	<input type="submit" value="submit" />
+	</form>
+<?php
+
+}
+
+function post_edit_form($post) {
+
+?>
+	<p>Edit Post</p>
+	<form action="update_post.php" method="post">
+	<input type="hidden" name="id" value="<?php echo $post->id;?>" />
+	<input type="text" name="title" value="<?php echo $post->title;?>"/><br>
+	<textarea name="body" cols="45" row="5"><?php echo $post->body;?></textarea><br>
 	<input type="submit" value="submit" />
 	</form>
 <?php
