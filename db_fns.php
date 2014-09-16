@@ -16,3 +16,17 @@ function get_entries($id) {
 
 	return $result;
 }
+
+function get_post_details($postid) {
+	$db = db_connect();
+	$query = "select * from entries where id=".$postid;
+	$result = $db->query($query);
+	return $result->fetch_object();
+}
+
+function get_comments($postid) {
+	$db = db_connect();
+	$query = "select * from comments where post_id=".$postid;
+	$result = $db->query($query);
+	return $result;
+}

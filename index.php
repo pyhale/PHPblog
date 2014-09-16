@@ -4,10 +4,7 @@ include ('functions.php');
 
 session_start();
 
-if (!isset($_SESSION['author'])) {
-	header('Location:http://127.0.0.1/blog/login.php');
-	exit;
-}
+check_valid_user();
 
 do_html_header('Blog');
 

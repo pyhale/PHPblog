@@ -16,7 +16,14 @@ function get_authorid($name) {
 	$query = "select id from members where name='".$name."'";
 	$result = $db->query($query);
 	if ($result) {
-		$row = $result->fetch_object();
-		return $row->id;
+		$obj = $result->fetch_object();
+		return $obj->id;
+	}
+}
+
+function check_valid_user(){
+	if (!isset($_SESSION['author'])) {
+		header('Location:http://127.0.0.1/blog/login.php');
+		exit;
 	}
 }
