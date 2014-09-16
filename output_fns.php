@@ -45,23 +45,50 @@ function display_entry($post) {
 
 function display_comments($comments) {
 
+	if (!$comments->num_rows) {
+		echo "<p>The post havn't comments yet. Be the first one!</p>";
+	} else {
+
 ?>
 	<p>Comments:</p>
 
 	<ol>
 <?php
 
-	for ($i=0; $i<$comments->num_rows; $i++) {
-		$row = $comments->fetch_assoc();
+		for ($i=0; $i<$comments->num_rows; $i++) {
+			$row = $comments->fetch_assoc();
 ?>
-		<li>
-		<p><?php echo $row['title'];?></p>
-		<p><?php echo $row['content'];?></p>
-		<a href="#">delete</a>
-		</li>
+			<li>
+			<p><?php echo $row['title'];?></p>
+			<p><?php echo $row['content'];?></p>
+			<a href="#">delete</a>
+			</li>
 <?php
-		echo "<hr>";
-	}
+			echo "<hr>";
+		}
 
-	echo "</ol>";
+		echo "</ol>";
+	}
+}
+
+function do_html_url($url, $title) {
+	$url = "http://127.0.0.1/".$url;
+?>
+	<p><a href="<?php echo $url;?>"><?php echo $title;?></a></p>
+<?php
+
+}
+
+function comments_post_form($postid) {
+
+?>
+	<p>Post comment</p>
+	<form action="comment_post.php" method="post">
+	<input type="hidden" name="post_id" value="<?php echo $postid;?>" />
+	<input type="text" name="title" /><br>
+	<textarea name="content" cols="45" row="5"></textarea><br>
+	<input type="submit" value="submit" />
+	</form>
+<?php
+
 }

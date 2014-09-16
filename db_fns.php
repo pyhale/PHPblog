@@ -30,3 +30,10 @@ function get_comments($postid) {
 	$result = $db->query($query);
 	return $result;
 }
+
+function insert_comment($post_id, $title, $content){
+	$db = db_connect();
+	$query = "insert into comments(post_id, title, content) values('".$post_id."', '".$title."', '".$content."')";
+	$result = $db->query($query);
+	return $result;
+}

@@ -16,4 +16,8 @@ $comments = get_comments($postid);
 
 display_comments($comments);
 
+comments_post_form($postid);
+
+do_html_url('blog','Home');
+
 do_html_footer();
