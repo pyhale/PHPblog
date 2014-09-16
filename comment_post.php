@@ -2,6 +2,10 @@
 
 include ('functions.php');
 
+session_start();
+
+check_valid_user();
+
 $post_id = $_POST['post_id'];
 $title = $_POST['title'];
 $content = $_POST['content'];

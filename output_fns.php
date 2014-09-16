@@ -92,3 +92,17 @@ function comments_post_form($postid) {
 <?php
 
 }
+
+function post_write_form($author_id) {
+
+?>
+	<p>Write Post</p>
+	<form action="insert_post.php" method="post">
+	<input type="hidden" name="author_id" value="<?php echo $author_id;?>" />
+	<input type="text" name="title" /><br>
+	<textarea name="body" cols="45" row="5"></textarea><br>
+	<input type="submit" value="submit" />
+	</form>
+<?php
+
+}

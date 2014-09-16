@@ -44,3 +44,10 @@ function del_comment($id) {
 	$result = $db->query($query);
 	return $result;
 }
+
+function insert_post($author_id, $title, $body) {
+	$db = db_connect();
+	$query = "insert into entries(title, body, author_id) values('".$title."', '".$body."', '".$author_id."')";
+	$result = $db->query($query);
+	return $result;
+}

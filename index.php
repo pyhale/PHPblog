@@ -14,4 +14,6 @@ $result = get_entries($_SESSION['author_id']);
 
 display_entries($result);
 
+do_html_url('blog/write_post.php', 'Write post');
+
 do_html_footer();

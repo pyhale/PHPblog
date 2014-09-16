@@ -2,6 +2,10 @@
 
 include ('functions.php');
 
+session_start();
+
+check_valid_user();
+
 $id = $_GET['id'];
 
 do_html_header('Delete comment');
