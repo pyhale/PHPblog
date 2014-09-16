@@ -51,3 +51,10 @@ function insert_post($author_id, $title, $body) {
 	$result = $db->query($query);
 	return $result;
 }
+
+function del_post($id) {
+	$db = db_connect();
+	$query = "delete from entries where id=".$id;
+	$result = $db->query($query);
+	return $result;
+}

@@ -30,6 +30,7 @@ function display_entries($result) {
 		$row = $result->fetch_assoc();
 		echo "<a href=\"http://127.0.0.1/blog/post.php?id=".$row['id']."\"><h3>".$row['title']."</h3></a>";
 		echo "<p>".$row['body']."</p>";
+		echo "<a href=\"http://127.0.0.1/blog/del_post.php?id=".$row['id']."\">delete</a>";
 		echo "<hr />";
 	}
 }
