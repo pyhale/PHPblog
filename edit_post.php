@@ -14,4 +14,8 @@ $post = get_post_details($id);
 
 post_edit_form($post);
 
+do_html_url('blog/post.php?id='.$id, 'Discard');
+
+do_html_url('blog', 'Home');
+
 do_html_footer();

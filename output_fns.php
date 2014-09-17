@@ -11,6 +11,9 @@ function do_html_header($title='') {
 <body>
 
 <?php
+	$cate = get_category();
+
+	do_html_category($cate);
 
 }
 
@@ -120,5 +123,16 @@ function post_edit_form($post) {
 	<input type="submit" value="submit" />
 	</form>
 <?php
+
+}
+
+function do_html_category($cate_array) {
+	echo "<div style=\"float:right;\">Category: ";
+	foreach ($cate_array as $item) {
+?>
+	<a href="#"><?php echo $item['name'];?></a>
+<?php
+	}
+	echo "</div>";
 
 }
