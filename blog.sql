@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 09 月 15 日 08:18
+-- 生成日期: 2014 年 09 月 17 日 03:10
 -- 服务器版本: 5.5.20
 -- PHP 版本: 5.3.10
 
@@ -56,19 +56,20 @@ CREATE TABLE IF NOT EXISTS `entries` (
   `title` varchar(128) NOT NULL,
   `body` text NOT NULL,
   `author_id` int(11) NOT NULL,
+  `category` char(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- 转存表中的数据 `entries`
 --
 
-INSERT INTO `entries` (`id`, `title`, `body`, `author_id`) VALUES
-(6, 'ewfiaej waege wegaoi', '<p>come on ,change, damn it.test for redirect...test for the ckeditor...</p>\r\n', 2),
-(7, 'fgfgva', 'gaerg earger erag er erhe er ', 2),
-(8, 'Some title goes here', 'so that is the content.', 2),
-(9, 'this is title', 'this is the content of the post.', 2),
-(10, 'test entry for pagination', '<p>sfsfs a sdg g rf rg eg e eh rh rf sher t e s rt t t gfbhf t dg gfcgh.</p>\r\n', 2);
+INSERT INTO `entries` (`id`, `title`, `body`, `author_id`, `category`) VALUES
+(6, 'ewfiaej waege wegaoi', 'come on ,change, damn it.test for redirect...test for the ckeditor...\r\n', 2, '1'),
+(7, 'fgfgva', 'gaerg earger erag er erhe er ', 2, '2'),
+(8, 'Some title goes here', 'so that is the content.', 2, '3'),
+(9, 'this is title', 'this is the content of the post.', 2, '1'),
+(10, 'test entry for pagination', '<p>sfsfs a sdg g rf rg eg e eh rh rf sher t e s rt t t gfbhf t dg gfcgh.</p>\r\n', 2, '2');
 
 -- --------------------------------------------------------
 

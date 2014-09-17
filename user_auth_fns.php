@@ -27,3 +27,17 @@ function check_valid_user(){
 		exit;
 	}
 }
+
+function register($name, $passwd) {
+	$db = db_connect();
+	$query = "select * from members where name='".$name."'";
+	$result = $db->query($query);
+	if ($result->num_rows>0) {
+		echo "the name already exits.";
+		do_html_url('blog/register', 'Back to register');
+		exit;
+	}
+	$query = "insert into members(name, passwd) values('".$name."','".$passwd."')";
+	$result = $db->query($query);
+	return $result;
+}

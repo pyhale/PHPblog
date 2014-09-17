@@ -11,9 +11,13 @@ function do_html_header($title='') {
 <body>
 
 <?php
-	$cate = get_category();
 
-	display_category($cate);
+	if (isset($_SESSION['author'])) {
+
+		$cate = get_category();
+
+		display_category($cate);
+	}
 
 }
 

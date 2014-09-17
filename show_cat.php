@@ -16,4 +16,6 @@ $post = get_cate_post($catid);
 
 display_entries($post);
 
+do_html_url('blog', 'Home');
+
 do_html_footer();
