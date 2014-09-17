@@ -9,10 +9,11 @@ check_valid_user();
 do_html_header('Write Post');
 
 $author_id = $_POST['author_id'];
+$category = $_POST['category'];
 $title = $_POST['title'];
 $body = $_POST['body'];
 
-$result = insert_post($author_id, $title, $body);
+$result = insert_post($author_id, $title, $body, $category);
 
 if ($result) {
 	echo "Insert your post successfully.";

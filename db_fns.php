@@ -45,9 +45,9 @@ function del_comment($id) {
 	return $result;
 }
 
-function insert_post($author_id, $title, $body) {
+function insert_post($author_id, $title, $body, $category) {
 	$db = db_connect();
-	$query = "insert into entries(title, body, author_id) values('".$title."', '".$body."', '".$author_id."')";
+	$query = "insert into entries(title, body, author_id, category) values('".$title."', '".$body."', '".$author_id."', '".$category."')";
 	$result = $db->query($query);
 	return $result;
 }
@@ -59,9 +59,18 @@ function del_post($id) {
 	return $result;
 }
 
-function update_post($id, $title, $body) {
+function update_post($id, $title, $body, $category) {
 	$db = db_connect();
-	$query = "update entries set title='".$title."', body='".$body."' where id=".$id;
+	$query = "update entries set title='".$title."', body='".$body."', category='".$category."' where id=".$id;
 	$result = $db->query($query);
+	return $result;
+}
+
+function get_cate_post($id) {
+	$db = db_connect();
+	$query = "select * from entries where category=".$id;
+
+	$result = $db->query($query);
+
 	return $result;
 }

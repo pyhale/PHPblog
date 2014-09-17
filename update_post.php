@@ -9,10 +9,11 @@ check_valid_user();
 do_html_header('Update post');
 
 $id = $_POST['id'];
+$category = $_POST['category'];
 $title = $_POST['title'];
 $body = $_POST['body'];
 
-$result = update_post($id, $title, $body);
+$result = update_post($id, $title, $body, $category);
 
 if ($result) {
 	echo "Edit post successfully.";

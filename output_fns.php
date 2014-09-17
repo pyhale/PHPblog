@@ -13,7 +13,7 @@ function do_html_header($title='') {
 <?php
 	$cate = get_category();
 
-	do_html_category($cate);
+	display_category($cate);
 
 }
 
@@ -41,8 +41,10 @@ function display_entries($result) {
 
 function display_entry($post) {
 	do_html_header($post->title);
+	$category = get_catname($post->category);
 ?>
 	<h3><?php echo $post->title;?></h3>
+	<a href="<?php echo 'http://127.0.0.1/blog/show_cat.php?id='.$post->category;?>"><p><?php echo $category;?></p></a>
 	<p><?php echo $post->body;?></p>
 <?php
 	echo "<hr>";
@@ -105,6 +107,11 @@ function post_write_form($author_id) {
 	<form action="insert_post.php" method="post">
 	<input type="hidden" name="author_id" value="<?php echo $author_id;?>" />
 	<input type="text" name="title" /><br>
+	<select name="category" size="1">
+		<option value="1">Life</option>
+		<option value="2">Business</option>
+		<option value="3">entertainment</option>
+	</select><br>
 	<textarea name="body" cols="45" row="5"></textarea><br>
 	<input type="submit" value="submit" />
 	</form>
@@ -119,6 +126,11 @@ function post_edit_form($post) {
 	<form action="update_post.php" method="post">
 	<input type="hidden" name="id" value="<?php echo $post->id;?>" />
 	<input type="text" name="title" value="<?php echo $post->title;?>"/><br>
+	<select name="category" size="1">
+		<option value="1" <?php if ($post->category == 1) echo "select=\"selected\"";?>>Life</option>
+		<option value="2" <?php if ($post->category == 2) echo "select=\"selected\"";?>>Business</option>
+		<option value="3" <?php if ($post->category == 3) echo "select=\"selected\"";?>>entertainment</option>
+	</select><br>
 	<textarea name="body" cols="45" row="5"><?php echo $post->body;?></textarea><br>
 	<input type="submit" value="submit" />
 	</form>
@@ -126,11 +138,11 @@ function post_edit_form($post) {
 
 }
 
-function do_html_category($cate_array) {
-	echo "<div style=\"float:right;\">Category: ";
+function display_category($cate_array) {
+	echo "<div style=\"float:right\">Category: ";
 	foreach ($cate_array as $item) {
 ?>
-	<a href="#"><?php echo $item['name'];?></a>
+	<a href="<?php echo "http://127.0.0.1/blog/show_cat.php?id=".$item['id'];?>"><?php echo $item['name'];?></a>
 <?php
 	}
 	echo "</div>";
