@@ -16,6 +16,15 @@ $comments = get_comments($postid);
 
 display_comments($comments);
 
+?>
+
+<script src="js/style.js"></script>
+<script>
+window.onload = checkComments();
+</script>
+
+<?php
+
 comments_post_form($postid);
 
 do_html_url('blog','Home');

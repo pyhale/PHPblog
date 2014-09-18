@@ -70,9 +70,11 @@ function display_comments($comments) {
 			$row = $comments->fetch_assoc();
 ?>
 			<li>
+			<span style="visibility: hidden"><?php echo $row['id'];?></span>
 			<p><?php echo $row['title'];?></p>
 			<p><?php echo $row['content'];?></p>
 			<a href="<?php echo 'http://127.0.0.1/blog/del_comment.php?id='.$row['id'];?>">delete</a>
+			<span style="visibility: hidden"><?php echo $row['reply_to'];?></span>
 			</li>
 <?php
 			echo "<hr>";
