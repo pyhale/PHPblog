@@ -1,7 +1,13 @@
 <?php
 
-function do_html_header($title='') {
-
+function do_html_header($title='', $script='', $style='') {
+	if (!empty($script)) {
+		foreach ($script as $item) {
+?>
+		<script type="text/javascript" src="js/<?php echo $item;?>"></script>
+<?php
+		}
+	}
 ?>
 
 <html>
@@ -44,7 +50,6 @@ function display_entries($result) {
 }
 
 function display_entry($post) {
-	do_html_header($post->title);
 	$category = get_catname($post->category);
 ?>
 	<h3><?php echo $post->title;?></h3>

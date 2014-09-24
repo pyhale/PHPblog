@@ -10,17 +10,13 @@ $postid = $_GET['id'];
 
 $post = get_post_details($postid);
 
+do_html_header($post->title, array('ajax_functions.js'));
+
 display_entry($post);
 
 $comments = get_comments($postid);
 
 display_comments($comments);
-
-?>
-
-<script type="text/javascript" src="js/ajax_functions.js"></script>
-
-<?php
 
 comments_post_form($postid);
 
