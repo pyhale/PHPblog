@@ -6,7 +6,7 @@ session_start();
 
 check_valid_user();
 
-do_html_header('Blog');
+do_html_header('Blog', array('ajax_functions.js'));
 
 $_SESSION['author_id'] = get_authorid($_SESSION['author']);
 

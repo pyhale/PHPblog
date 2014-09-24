@@ -44,7 +44,7 @@ function display_entries($result) {
 		echo "<a href=\"http://127.0.0.1/blog/post.php?id=".$row['id']."\"><h3>".$row['title']."</h3></a>";
 		echo "<p>".$row['body']."</p>";
 		echo "<a href=\"http://127.0.0.1/blog/edit_post.php?id=".$row['id']."\">edit</a><br>";
-		echo "<a href=\"http://127.0.0.1/blog/del_post.php?id=".$row['id']."\">delete</a>";
+		echo "<a href=\"javascript:delPost(".$row['id'].")\">delete</a>";
 		echo "<hr />";
 	}
 }

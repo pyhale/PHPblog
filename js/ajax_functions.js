@@ -64,9 +64,24 @@ function delComment(id) {
 	myReq.onreadystatechange = function() {
 		if (myReq.readyState == 4) {
 			if (myReq.status == 200) {
-				result = myReq.responseText;
+				return;
 			}
 		}
 	};
 	myReq.send(null);
+}
+
+function delPost(id) {
+
+	myReq = getXMLHTTPRequest();
+	theURL = "del_post.php?id=" + id;
+	myReq.open("GET", theURL, true);
+	myReq.onreadystatechange = function() {
+		if (myReq.readyState == 4) {
+			if (myReq.status == 200) {
+				return;
+			}
+		}
+	};
+	myReq.send();
 }
