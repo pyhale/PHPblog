@@ -18,10 +18,7 @@ display_comments($comments);
 
 ?>
 
-<script src="js/style.js"></script>
-<script>
-window.onload = checkComments();
-</script>
+<script type="text/javascript" src="js/ajax_functions.js"></script>
 
 <?php
 

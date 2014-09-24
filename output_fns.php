@@ -63,7 +63,7 @@ function display_comments($comments) {
 ?>
 	<p>Comments:</p>
 
-	<ol>
+	<ol id="comments">
 <?php
 
 		for ($i=0; $i<$comments->num_rows; $i++) {
@@ -96,7 +96,7 @@ function comments_post_form($postid) {
 
 ?>
 	<p>Post comment</p>
-	<form action="comment_post.php" method="post">
+	<form  name="comment" action="comment_post.php" method="post" onsubmit="postComment(); return false;">
 	<input type="hidden" name="post_id" value="<?php echo $postid;?>" />
 	<input type="text" name="title" /><br>
 	<textarea name="content" cols="45" row="5"></textarea><br>
