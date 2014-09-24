@@ -61,15 +61,17 @@ function display_entry($post) {
 
 function display_comments($comments) {
 
-	if (!$comments->num_rows) {
-		echo "<p>The post havn't comments yet. Be the first one!</p>";
-	} else {
-
 ?>
 	<p>Comments:</p>
 
 	<ol id="comments">
+
 <?php
+
+	if (!$comments->num_rows) {
+		echo "<p>The post havn't comments yet. Be the first one!</p>";
+		echo "<hr>";
+	} else {
 
 		for ($i=0; $i<$comments->num_rows; $i++) {
 			$row = $comments->fetch_assoc();
@@ -78,7 +80,7 @@ function display_comments($comments) {
 			<span style="visibility: hidden"><?php echo $row['id'];?></span>
 			<p><?php echo $row['title'];?></p>
 			<p><?php echo $row['content'];?></p>
-			<a href="<?php echo 'http://127.0.0.1/blog/del_comment.php?id='.$row['id'];?>">delete</a>
+			<a href="javascript:delComment(<?php echo $row['id'];?>);">delete</a>
 			<span style="visibility: hidden"><?php echo $row['reply_to'];?></span>
 			</li>
 <?php

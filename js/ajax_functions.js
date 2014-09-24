@@ -56,6 +56,17 @@ function postComment() {
 	myReq.send(postStr);
 }
 
-function test() {
-	alert('ok.');
+function delComment(id) {
+
+	myReq = getXMLHTTPRequest();
+	theURL = "del_comment.php?id=" + id;
+	myReq.open("GET", theURL, true);
+	myReq.onreadystatechange = function() {
+		if (myReq.readyState == 4) {
+			if (myReq.status == 200) {
+				result = myReq.responseText;
+			}
+		}
+	};
+	myReq.send(null);
 }
